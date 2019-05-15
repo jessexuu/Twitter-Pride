@@ -1,2 +1,2 @@
-#Analytics for Twitter Pride Project
+# Analytics for Twitter Pride Project
 In Progress...
