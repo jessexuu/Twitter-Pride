@@ -16,25 +16,57 @@ api_url = 'http://115.146.92.137:8000/api/v1/'
 detect_api = '{}face_detection'.format(api_url)
 compare_api = '{}face_comparison'.format(api_url)
 
-detect_limit = 3
-
-
-img_url = 'https://pbs.twimg.com/profile_images/1126882595814248449/FXjwUAmJ.jpg'
-
-r = requests.get(img_url, stream=True)
-image_file = BytesIO(r.content)
-
-files = {
-    "image_file": image_file
-}
 
 data = {
-    "limit": 3,
+    "apples": 34,
+    "pear": ""
 }
 
-detect_response = requests.post(detect_api, files=files, data=data).json()
-faces = detect_response['faces']
-print(faces)
+print(data)
+
+if("apples") not in data:
+    print("no apples")
+
+if('pear') not in data:
+    print('no pears')
+
+if('juice') not in data:
+    print('no juice')
+#
+# def add_skipped_status(doc_id, reason = "not provided"):
+#
+#     query_curr_doc = {
+#         "_id": doc_id
+#     }
+#
+#     add_skipped = {
+#         "$set": {
+#             "skipped": reason
+#         }
+#     }
+#
+#     filtered_col.update_one(query_curr_doc, add_skipped)
+#
+# for x in range (5):
+#     filtered_col.insert_one({"number": x})
+#
+# cursor = filtered_col.find({
+#     "skipped": {
+#         "$exists": False
+#     }
+# })
+# for document in cursor:
+#     print(document)
+
+
+# def oauth_req(url, key, secret, http_method="GET", post_body=””, http_headers=None):
+#     consumer = oauth2.Consumer(key=CONSUMER_KEY, secret=CONSUMER_SECRET)
+#     token = oauth2.Token(key=key, secret=secret)
+#     client = oauth2.Client(consumer, token)
+#     resp, content = client.request( url, method=http_method, body=post_body, headers=http_headers )
+#     return content
+
+
 # scores = detect_response['scores']
 # print(Image.open(image_file).size)
 
